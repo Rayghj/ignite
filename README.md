@@ -46,6 +46,7 @@ php artisan migrate --seed
 Make sure your database has been created before running this command.
 
 ### 7️⃣ Activate Wayfinder
+
 ```bash
 php artisan wayfinder:generate
 ```

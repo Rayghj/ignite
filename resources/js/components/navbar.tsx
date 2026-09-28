@@ -1,7 +1,7 @@
-import { useState, useRef, useEffect } from "react";
-import { router, Link, usePage } from "@inertiajs/react";
-import { Box, Menu, X } from "lucide-react";
-import { login, home } from "@/routes";
+import { useState, useRef, useEffect } from 'react';
+import { router, Link, usePage } from '@inertiajs/react';
+import { Box, Menu, X } from 'lucide-react';
+import { login, home } from '@/routes';
 
 export default function Navbar() {
     const { url } = usePage();
@@ -21,43 +21,48 @@ export default function Navbar() {
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            if (navRef.current && !navRef.current.contains(event.target as Node)) {
+            if (
+                navRef.current &&
+                !navRef.current.contains(event.target as Node)
+            ) {
                 setIsOpen(false);
             }
         };
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => document.removeEventListener("mousedown", handleClickOutside);
+        document.addEventListener('mousedown', handleClickOutside);
+        return () =>
+            document.removeEventListener('mousedown', handleClickOutside);
     }, []);
 
     return (
-        <nav ref={navRef} className="w-full bg-[#FFF9ECF2] absolute top-0 left-0 z-50 border-b-2 border-[#1E1E1E]">
-            <div className="mx-auto px-4 md:px-12 h-20 flex items-center justify-between">
+        <nav
+            ref={navRef}
+            className="absolute top-0 left-0 z-50 w-full border-b-2 border-[#1E1E1E] bg-[#FFF9ECF2]"
+        >
+            <div className="mx-auto flex h-20 items-center justify-between px-4 md:px-12">
                 <div className="flex flex-col justify-center">
-                    <span className="font-grotesk text-xl md:text-2xl font-black tracking-widest text-[#550017] leading-none">
+                    <span className="font-grotesk text-xl leading-none font-black tracking-widest text-[#550017] md:text-2xl">
                         IGNITE
                     </span>
-                    <span className="text-[10px] md:text-xs font-bold tracking-widest text-[#574143] mt-1 uppercase">
+                    <span className="mt-1 text-[10px] font-bold tracking-widest text-[#574143] uppercase md:text-xs">
                         DIGITAL ARCADE '26
                     </span>
                 </div>
 
                 {/* nav desktop */}
-                <div className="hidden md:flex items-center space-x-2 border-2 border-[#1E1E1E] bg-[#FAF5E9] p-1.5 rounded-sm shadow-[2px_2px_0px_0px_#1E1E1E]">
+                <div className="hidden items-center space-x-2 rounded-sm border-2 border-[#1E1E1E] bg-[#FAF5E9] p-1.5 shadow-[2px_2px_0px_0px_#1E1E1E] md:flex">
                     {navItems.map((item) => {
-                        const isActive = url === item.href || url.endsWith(item.href);
+                        const isActive =
+                            url === item.href || url.endsWith(item.href);
 
                         return (
                             <Link
                                 key={item.name}
                                 href={item.href}
-                                className={`
-                                    text-xs font-bold tracking-widest px-4 py-2 uppercase transition-all duration-75 rounded-none
-                                    ${
-                                        isActive
-                                            ? 'bg-[#800A2C] text-white border-2 border-[#1E1E1E] shadow-[3px_3px_0px_0px_#1E1E1E] -translate-x-px -translate-y-px'
-                                            : 'text-[#5C061C] hover:bg-[#800A2C] hover:text-white hover:border-2 hover:border-[#1E1E1E] hover:shadow-[3px_3px_0px_0px_#1E1E1E] hover:-translate-x-px hover:-translate-y-px active:translate-x-px active:translate-y-px active:shadow-[1px_1px_0px_0px_#1E1E1E]'
-                                    }
-                                `}
+                                className={`rounded-none px-4 py-2 text-xs font-bold tracking-widest uppercase transition-all duration-75 ${
+                                    isActive
+                                        ? '-translate-x-px -translate-y-px border-2 border-[#1E1E1E] bg-[#800A2C] text-white shadow-[3px_3px_0px_0px_#1E1E1E]'
+                                        : 'text-[#5C061C] hover:-translate-x-px hover:-translate-y-px hover:border-2 hover:border-[#1E1E1E] hover:bg-[#800A2C] hover:text-white hover:shadow-[3px_3px_0px_0px_#1E1E1E] active:translate-x-px active:translate-y-px active:shadow-[1px_1px_0px_0px_#1E1E1E]'
+                                } `}
                             >
                                 {item.name}
                             </Link>
@@ -67,22 +72,8 @@ export default function Navbar() {
 
                 {/* desktop login button */}
                 <div className="hidden md:block" onClick={handleLoginClicked}>
-                    <button
-                        className="
-                            flex items-center space-x-2
-                            bg-[#D4A000] text-[#1A1A1A] text-sm
-                            font-bold tracking-widest px-5 py-3.5 cursor-pointer
-                            rounded-none border-2 border-[#1A1A1A]
-                            shadow-[4px_4px_0px_0px_#1A1A1A]
-                            hover:-translate-x-0.5 hover:-translate-y-0.5
-                            hover:shadow-[6px_6px_0px_0px_#1A1A1A]
-                            hover:bg-[#E5B100]
-                            active:translate-x-0.5 active:translate-y-0.5
-                            active:shadow-[2px_2px_0px_0px_#1A1A1A]
-                            transition-all duration-75 ease-out
-                        "
-                    >
-                        <Box className="w-4 h-4 stroke-[2.5]" />
+                    <button className="flex cursor-pointer items-center space-x-2 rounded-none border-2 border-[#1A1A1A] bg-[#D4A000] px-5 py-3.5 text-sm font-bold tracking-widest text-[#1A1A1A] shadow-[4px_4px_0px_0px_#1A1A1A] transition-all duration-75 ease-out hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-[#E5B100] hover:shadow-[6px_6px_0px_0px_#1A1A1A] active:translate-x-0.5 active:translate-y-0.5 active:shadow-[2px_2px_0px_0px_#1A1A1A]">
+                        <Box className="h-4 w-4 stroke-[2.5]" />
                         <span>MASUK/LOGIN</span>
                     </button>
                 </div>
@@ -90,37 +81,35 @@ export default function Navbar() {
                 {/* mobile hamburger button */}
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="
-                        md:hidden flex items-center justify-center p-2 cursor-pointer
-                        bg-[#FAF5E9] text-[#1E1E1E] border-2 border-[#1E1E1E]
-                        shadow-[2px_2px_0px_0px_#1E1E1E] active:translate-x-0.5 active:translate-y-0.5
-                    "
+                    className="flex cursor-pointer items-center justify-center border-2 border-[#1E1E1E] bg-[#FAF5E9] p-2 text-[#1E1E1E] shadow-[2px_2px_0px_0px_#1E1E1E] active:translate-x-0.5 active:translate-y-0.5 md:hidden"
                     aria-label="Toggle Navigation"
                 >
-                    {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                    {isOpen ? (
+                        <X className="h-6 w-6" />
+                    ) : (
+                        <Menu className="h-6 w-6" />
+                    )}
                 </button>
             </div>
 
             {/* mobile menu dropdown */}
             {isOpen && (
-                <div className="md:hidden border-t-2 border-[#1E1E1E] bg-[#FAF5E9] p-4 space-y-3 shadow-lg animate-in slide-in-from-top-2 duration-150">
+                <div className="animate-in slide-in-from-top-2 space-y-3 border-t-2 border-[#1E1E1E] bg-[#FAF5E9] p-4 shadow-lg duration-150 md:hidden">
                     <div className="flex flex-col space-y-2">
                         {navItems.map((item) => {
-                            const isActive = url === item.href || url.endsWith(item.href);
+                            const isActive =
+                                url === item.href || url.endsWith(item.href);
 
                             return (
                                 <Link
                                     key={item.name}
                                     href={item.href}
                                     onClick={() => setIsOpen(false)}
-                                    className={`
-                                        w-full text-center text-xs font-bold tracking-widest py-3 uppercase transition-all duration-75 rounded-none border-2 border-[#1E1E1E]
-                                        ${
-                                            isActive
-                                                ? 'bg-[#800A2C] text-white shadow-[2px_2px_0px_0px_#1E1E1E]'
-                                                : 'bg-[#FFF9EC] text-[#5C061C] hover:bg-[#800A2C] hover:text-white'
-                                        }
-                                    `}
+                                    className={`w-full rounded-none border-2 border-[#1E1E1E] py-3 text-center text-xs font-bold tracking-widest uppercase transition-all duration-75 ${
+                                        isActive
+                                            ? 'bg-[#800A2C] text-white shadow-[2px_2px_0px_0px_#1E1E1E]'
+                                            : 'bg-[#FFF9EC] text-[#5C061C] hover:bg-[#800A2C] hover:text-white'
+                                    } `}
                                 >
                                     {item.name}
                                 </Link>
@@ -128,18 +117,9 @@ export default function Navbar() {
                         })}
                         <button
                             onClick={handleLoginClicked}
-                            className="
-                                w-full flex items-center justify-center space-x-2
-                                bg-[#D4A000] text-[#1A1A1A] text-xs
-                                font-bold tracking-widest py-3 cursor-pointer
-                                rounded-none border-2 border-[#1A1A1A]
-                                shadow-[3px_3px_0px_0px_#1A1A1A]
-                                active:translate-x-0.5 active:translate-y-0.5
-                                active:shadow-[1px_1px_0px_0px_#1A1A1A]
-                                transition-all duration-75
-                            "
+                            className="flex w-full cursor-pointer items-center justify-center space-x-2 rounded-none border-2 border-[#1A1A1A] bg-[#D4A000] py-3 text-xs font-bold tracking-widest text-[#1A1A1A] shadow-[3px_3px_0px_0px_#1A1A1A] transition-all duration-75 active:translate-x-0.5 active:translate-y-0.5 active:shadow-[1px_1px_0px_0px_#1A1A1A]"
                         >
-                            <Box className="w-4 h-4 stroke-[2.5]" />
+                            <Box className="h-4 w-4 stroke-[2.5]" />
                             <span>MASUK/LOGIN</span>
                         </button>
                     </div>
