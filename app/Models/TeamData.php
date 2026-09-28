@@ -2,17 +2,26 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 #[Fillable(['user_id', 'competition_id', 'university', 'mentor', 'ktm_link', 'document_link', 'status'])]
 class TeamData extends Model
 {
-    public function user() {
+    /**
+     * @return BelongsTo<User, $this>
+     */
+    public function user(): BelongsTo
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function competition() {
+    /**
+     * @return BelongsTo<Competition, $this>
+     */
+    public function competition(): BelongsTo
+    {
         return $this->belongsTo(Competition::class);
     }
 }

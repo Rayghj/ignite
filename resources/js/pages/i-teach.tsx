@@ -1,17 +1,14 @@
 import { Head, Link } from '@inertiajs/react';
 import {
     ArrowRight,
-    CalendarDays,
     ChevronDown,
     Clock3,
     Download,
     KeyRound,
-    MapPin,
     Medal,
     Play,
     Presentation,
     ScanSearch,
-    Trophy,
     Users,
 } from 'lucide-react';
 import { useState } from 'react';
