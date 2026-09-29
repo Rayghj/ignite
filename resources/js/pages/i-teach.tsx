@@ -124,7 +124,7 @@ export default function ITeach() {
                     </section>
 
                     <section className="px-5 py-10 sm:px-8 lg:px-12 lg:py-14">
-                        <div className="mx-auto max-w-[1480px] border-4 border-[#172238] bg-[#fff9e9] p-4 shadow-[6px_6px_0_#172238] sm:p-6 lg:p-7">
+                        <div className="mx-auto max-w-370 border-4 border-[#172238] bg-[#fff9e9] p-4 shadow-[6px_6px_0_#172238] sm:p-6 lg:p-7">
                             <div className="border-b-4 border-[#172238] pb-2">
                                 <h2 className="font-grotesk text-2xl font-bold sm:text-3xl">
                                     Rundown & Quest Timeline
