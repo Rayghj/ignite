@@ -41,7 +41,7 @@ export default function HeroSection() {
                         STAGE LEVEL
                     </span>
                     <span className="text-xl md:text-2xl font-black text-gray-500">
-                        QUALIFYING RESULTS
+                        IN REVIEW
                     </span>
                 </div>
             </div>
