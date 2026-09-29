@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { router, Link, usePage } from '@inertiajs/react';
 import { Box, Menu, X } from 'lucide-react';
-import { login, home } from '@/routes';
+import { login, home, iTeach, iGame } from '@/routes';
 
 export default function Navbar() {
     const { url } = usePage();
@@ -10,8 +10,8 @@ export default function Navbar() {
 
     const navItems = [
         { name: 'BERANDA', href: home().url },
-        { name: 'I-TEACH', href: '/i-teach' },
-        { name: 'I-GAME', href: '/i-game' },
+        { name: 'I-TEACH', href: iTeach().url },
+        { name: 'I-GAME', href: iGame().url },
     ];
 
     const handleLoginClicked = () => {
