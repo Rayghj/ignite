@@ -1,4 +1,4 @@
-import { Head, Link } from '@inertiajs/react';
+import { Head } from '@inertiajs/react';
 import {
     ArrowRight,
     ChevronDown,
@@ -9,10 +9,14 @@ import {
     Play,
     Presentation,
     ScanSearch,
-    Users,
 } from 'lucide-react';
 import { useState } from 'react';
-import { login } from '@/routes';
+import Navbar from '@/components/navbar';
+import {
+    Collapsible,
+    CollapsibleContent,
+    CollapsibleTrigger,
+} from '@/components/ui/collapsible';
 
 const schedule = [
     {
@@ -67,46 +71,9 @@ export default function ITeach() {
         <>
             <Head title="I-Teach Detail" />
             <div className="min-h-screen overflow-x-hidden bg-[#fff9e9] text-[#172238]">
-                <header className="border-b-2 border-[#172238] bg-[#fff9e9]">
-                    <div className="mx-auto flex h-16 max-w-[1480px] items-center justify-between px-5 sm:px-8 lg:px-12">
-                        <Link href="/" className="leading-none">
-                            <span className="font-grotesk block text-xl font-black tracking-[0.14em] text-[#72001f]">
-                                IGNITE
-                            </span>
-                            <span className="block font-mono text-[7px] font-bold tracking-[0.2em] text-[#54444a]">
-                                DIGITAL ARCADE '26
-                            </span>
-                        </Link>
-                        <nav className="hidden items-center border-2 border-[#172238] bg-[#fff9e9] p-1 shadow-[2px_2px_0_#172238] md:flex">
-                            <Link
-                                href="/"
-                                className="px-5 py-2 font-mono text-[10px] font-bold tracking-widest text-[#72001f] hover:bg-[#f0e4c9]"
-                            >
-                                BERANDA
-                            </Link>
-                            <Link
-                                href="/i-teach"
-                                className="border-2 border-[#172238] bg-[#72001f] px-5 py-2 font-mono text-[10px] font-bold tracking-widest text-white shadow-[2px_2px_0_#172238]"
-                            >
-                                I-TEACH
-                            </Link>
-                            <a
-                                href="#i-game"
-                                className="px-5 py-2 font-mono text-[10px] font-bold tracking-widest text-[#72001f] hover:bg-[#f0e4c9]"
-                            >
-                                I-GAME
-                            </a>
-                        </nav>
-                        <Link
-                            href={login()}
-                            className="flex items-center gap-2 border-2 border-[#172238] bg-[#d4a000] px-4 py-3 font-mono text-[10px] font-bold tracking-widest text-[#172238] shadow-[3px_3px_0_#172238] transition-transform hover:-translate-y-0.5"
-                        >
-                            <Users className="size-3.5" /> MASUK / LOGIN
-                        </Link>
-                    </div>
-                </header>
+                <Navbar />
 
-                <main>
+                <main className="w-full flex-1 pt-20">
                     <section className="bg-[#72001f] px-5 py-10 text-[#fff9e9] sm:px-8 lg:px-12 lg:py-12">
                         <div className="mx-auto max-w-[1480px]">
                             <p className="mb-3 font-mono text-[10px] font-bold tracking-[0.2em] text-[#e9b6bd]">
@@ -211,30 +178,25 @@ export default function ITeach() {
                                 {faqs.map((question, index) => {
                                     const isOpen = openFaq === index;
                                     return (
-                                        <button
+                                        <Collapsible
                                             key={question}
-                                            type="button"
-                                            onClick={() =>
-                                                setOpenFaq(
-                                                    isOpen ? null : index,
-                                                )
+                                            open={isOpen}
+                                            onOpenChange={(open) =>
+                                                setOpenFaq(open ? index : null)
                                             }
-                                            className="font-jakarta w-full bg-[#f5eedc] px-4 py-3 text-left text-sm font-semibold text-[#292523] transition-colors hover:bg-[#f1e4c6]"
+                                            className="w-full"
                                         >
-                                            <span className="flex items-center justify-between gap-4">
+                                            <CollapsibleTrigger className="font-jakarta flex w-full items-center justify-between gap-4 bg-[#f5eedc] px-4 py-3 text-left text-sm font-semibold text-[#292523] transition-colors hover:bg-[#f1e4c6]">
                                                 {question}
                                                 <ChevronDown
                                                     className={`size-4 shrink-0 text-[#72001f] transition-transform ${isOpen ? 'rotate-180' : ''}`}
                                                 />
-                                            </span>
-                                            {isOpen && (
-                                                <span className="mt-2 block border-t border-[#ded1b8] pt-2 text-xs leading-5 font-normal text-[#776e6b]">
-                                                    Informasi lengkap akan
-                                                    diumumkan melalui kanal
-                                                    resmi IGNITE '26.
-                                                </span>
-                                            )}
-                                        </button>
+                                            </CollapsibleTrigger>
+                                            <CollapsibleContent className="font-jakarta border-t border-[#ded1b8] bg-[#f5eedc] px-4 pb-3 text-left text-xs leading-5 text-[#776e6b]">
+                                                Informasi lengkap akan diumumkan
+                                                melalui kanal resmi IGNITE '26.
+                                            </CollapsibleContent>
+                                        </Collapsible>
                                     );
                                 })}
                             </div>
@@ -278,53 +240,6 @@ export default function ITeach() {
                         </p>
                     </section>
                 </main>
-
-                <footer className="border-t-4 border-[#172238] bg-[#72001f] px-5 py-10 text-[#fff9e9] sm:px-8 lg:px-12">
-                    <div className="mx-auto grid max-w-[1480px] gap-8 md:grid-cols-[1.3fr_1fr_1fr]">
-                        <div>
-                            <p className="font-grotesk text-lg font-bold text-[#f5c54e]">
-                                IGNITE '26
-                            </p>
-                            <p className="font-jakarta mt-2 text-sm font-semibold">
-                                Education & Digital Innovation Competition
-                            </p>
-                            <p className="font-jakarta mt-3 text-xs text-[#e5b8bd] italic">
-                                “Ignite Ideas, Inspire Innovation, Shape the
-                                Future.”
-                            </p>
-                        </div>
-                        <FooterLinks
-                            title="PETA TURNAMEN"
-                            links={[
-                                'Beranda',
-                                'Tentang',
-                                'Kompetisi',
-                                'FAQ',
-                                'Pedoman Lomba',
-                            ]}
-                        />
-                        <div className="font-jakarta text-xs leading-5 text-[#e5b8bd]">
-                            <p className="font-mono text-[9px] font-bold tracking-widest text-[#f5c54e]">
-                                WAKAS PANITIA
-                            </p>
-                            <p className="mt-2">
-                                Diselenggarakan oleh Universitas Pendidikan
-                                Indonesia
-                            </p>
-                            <p className="mt-2">
-                                EMAIL: halo@ignite-competition.id
-                                <br />
-                                DISCORD: IGNITE Arcade Server #2026
-                                <br />
-                                LOKASI: Bandung, Jawa Barat
-                            </p>
-                        </div>
-                    </div>
-                    <div className="mx-auto mt-8 flex max-w-[1480px] justify-between border-t border-[#9d3555] pt-5 font-mono text-[8px] tracking-widest text-[#f0cbd0]">
-                        <span>2026 IGNITE INDONESIA. ALL RIGHTS RESERVED.</span>
-                        <span>PRIVASI&nbsp;&nbsp; KETENTUAN</span>
-                    </div>
-                </footer>
             </div>
         </>
     );
@@ -357,28 +272,11 @@ function CtaButton({
     return (
         <a
             href={href}
-            className={`inline-flex items-center gap-2 border-4 border-[#172238] px-4 py-3 font-mono text-[10px] font-bold tracking-wide shadow-[4px_4px_0_#172238] transition-transform hover:-translate-y-0.5 ${primary ? 'bg-[#f5c54e] text-[#172238]' : 'bg-[#fff9e9] text-[#172238]'}`}
+            className={`inline-flex items-center gap-2 border-4 border-[#172238] px-4 py-3 font-mono text-[10px] font-bold tracking-wide shadow-[4px_4px_0_#172238] transition-all duration-75 ease-out hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_#172238] active:translate-x-0.5 active:translate-y-0.5 active:shadow-[2px_2px_0_#172238] ${primary ? 'bg-[#f5c54e] text-[#172238]' : 'bg-[#fff9e9] text-[#172238]'}`}
         >
             {icon}
             {children}
             <ArrowRight className="size-3" />
         </a>
-    );
-}
-
-function FooterLinks({ title, links }: { title: string; links: string[] }) {
-    return (
-        <div className="font-jakarta text-xs text-[#e5b8bd]">
-            <p className="border-b border-[#9d3555] pb-2 font-mono text-[9px] font-bold tracking-widest text-[#f5c54e]">
-                {title}
-            </p>
-            <div className="mt-2 grid grid-cols-2 gap-x-6 gap-y-1">
-                {links.map((link) => (
-                    <a key={link} href="#" className="hover:text-white">
-                        {link}
-                    </a>
-                ))}
-            </div>
-        </div>
     );
 }

@@ -1,0 +1,212 @@
+import { Head } from '@inertiajs/react';
+import { ArrowRight, Download, Play } from 'lucide-react';
+import Navbar from '@/components/navbar';
+
+export default function IGame() {
+    return (
+        <>
+            <Head title="I-Game Detail" />
+            <div className="min-h-screen overflow-x-hidden bg-[#fff9e9] text-[#172238]">
+                <Navbar />
+
+                <main className="w-full flex-1 pt-20">
+                    <section className="bg-[#72001f] px-5 py-10 text-[#fff9e9] sm:px-8 lg:px-12 lg:py-12">
+                        <div className="mx-auto max-w-[1480px]">
+                            <p className="mb-3 font-mono text-[10px] font-bold tracking-[0.2em] text-[#e9b6bd]">
+                                IGNITE '26 • EDUCATION & DIGITAL INNOVATION
+                                COMPETITION
+                            </p>
+                            <h1 className="font-grotesk max-w-4xl text-4xl leading-[0.96] font-bold tracking-tight uppercase sm:text-5xl lg:text-6xl">
+                                IGAME - ISOLA GAME JAM
+                            </h1>
+                            <p className="font-jakarta mt-5 max-w-5xl text-sm leading-6 text-[#f4cdd0] sm:text-base">
+                                Tantangan kilat merancang dan
+                                mengimplementasikan game indie original dalam 48
+                                jam berturut-turut sesuai tema misterius yang
+                                dirilis serentak.
+                            </p>
+                            <div className="mt-6 grid overflow-hidden rounded-md border-4 border-[#fff9e9] bg-[#fff9e9] text-[#172238] sm:grid-cols-3">
+                                <Meta
+                                    label="TIER ELIGIBILITY"
+                                    value="MAHASISWA D3/D4/S1"
+                                />
+                                <Meta
+                                    label="SQUAD FORMAT"
+                                    value="2 - 3 PERSONEL"
+                                />
+                                <Meta
+                                    label="FINAL VENUE"
+                                    value="UNIVERSITAS PENDIDIKAN INDONESIA"
+                                />
+                            </div>
+                        </div>
+                    </section>
+
+                    <section className="px-5 py-6 sm:px-8 lg:px-12 lg:py-7">
+                        <div className="mx-auto max-w-[1480px] border-4 border-[#172238] bg-[#fff9e9] p-4 shadow-[6px_6px_0_#172238] sm:p-6 lg:p-7">
+                            <div className="border-b-4 border-[#172238] pb-2">
+                                <h2 className="font-grotesk text-2xl font-bold sm:text-3xl">
+                                    Rundown & Quest Timeline
+                                </h2>
+                                <p className="font-jakarta text-xs text-[#655b5b]">
+                                    Jadwal lengkap kegiatan dari start line
+                                    hingga stage final perolehan hadiah.
+                                </p>
+                            </div>
+                            <div className="relative mt-4 flex min-h-40 items-center justify-center overflow-hidden border-4 border-[#172238] bg-[#f5eedc] px-5 py-8 shadow-[inset_0_0_12px_rgba(23,34,56,0.18)] sm:min-h-44">
+                                <span className="absolute top-2 left-2 size-2 rounded-full border border-[#172238] bg-[#f5c54e]" />
+                                <span className="absolute top-2 right-2 size-2 rounded-full border border-[#172238] bg-[#f5c54e]" />
+                                <span className="absolute bottom-2 left-2 size-2 rounded-full border border-[#172238] bg-[#f5c54e]" />
+                                <span className="absolute right-2 bottom-2 size-2 rounded-full border border-[#172238] bg-[#f5c54e]" />
+                                <div className="text-center">
+                                    <p className="font-grotesk text-5xl leading-none font-bold text-[#72001f] uppercase sm:text-6xl">
+                                        Coming Soon
+                                    </p>
+                                    <p className="mt-2 inline-block border-2 border-[#172238] bg-[#fff9e9] px-3 py-1 font-mono text-[9px] font-bold tracking-wide text-[#72001f] sm:text-xs">
+                                        TUNGGU YA, KAMI SEDANG MEMAKSIMALKAN
+                                        ACARANYA!!!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section
+                        id="register"
+                        className="bg-[#8c062c] px-5 py-10 text-center text-[#fff9e9] sm:px-8 lg:py-12"
+                    >
+                        <h2 className="font-grotesk mx-auto max-w-3xl text-3xl leading-tight font-bold uppercase sm:text-4xl">
+                            Siapkan pasukanmu. Persiapkan rencanamu di IGame
+                            2026!
+                        </h2>
+                        <p className="font-jakarta mx-auto mt-4 max-w-xl text-sm leading-6 text-[#f3cdd0]">
+                            Registrasi akan otomatis terbuka pada masa
+                            pendaftaran. Buatlah grup kamu sekarang dan
+                            persiapkan ide untuk dikembangkan.
+                        </p>
+                        <div className="mt-6 flex flex-wrap justify-center gap-4">
+                            <CtaButton
+                                href="#register"
+                                primary
+                                icon={
+                                    <Play className="size-3.5 fill-current" />
+                                }
+                            >
+                                DAFTAR SEKARANG
+                            </CtaButton>
+                            <CtaButton
+                                href="#guidebook"
+                                icon={<Download className="size-3.5" />}
+                            >
+                                UNDUH GUIDEBOOK RESMI (PDF)
+                            </CtaButton>
+                        </div>
+                        <p className="mt-5 font-mono text-[9px] font-bold tracking-widest text-[#f3cdd0]">
+                            DEVELOPMENT PROGRESS • BIAYA PENDAFTARAN: GRATIS
+                        </p>
+                    </section>
+                </main>
+
+                <footer className="border-t-4 border-[#172238] bg-[#72001f] px-5 py-8 text-[#fff9e9] sm:px-8 lg:px-12">
+                    <div className="mx-auto grid max-w-[1480px] gap-8 md:grid-cols-[1.3fr_1fr_1fr]">
+                        <div>
+                            <p className="font-grotesk text-lg font-bold text-[#f5c54e]">
+                                IGNITE '26
+                            </p>
+                            <p className="font-jakarta mt-2 text-sm font-semibold">
+                                Education & Digital Innovation Competition
+                            </p>
+                            <p className="font-jakarta mt-3 text-xs text-[#e5b8bd] italic">
+                                “Ignite Ideas, Inspire Innovation, Shape the
+                                Future.”
+                            </p>
+                        </div>
+                        <FooterLinks
+                            title="PETA TURNAMEN"
+                            links={[
+                                'Beranda',
+                                'Tentang',
+                                'Kompetisi',
+                                'FAQ',
+                                'Pedoman Lomba',
+                            ]}
+                        />
+                        <div className="font-jakarta text-xs leading-5 text-[#e5b8bd]">
+                            <p className="font-mono text-[9px] font-bold tracking-widest text-[#f5c54e]">
+                                WAKAS PANITIA
+                            </p>
+                            <p className="mt-2">
+                                Diselenggarakan oleh Universitas Pendidikan
+                                Indonesia
+                            </p>
+                            <p className="mt-2">
+                                EMAIL: halo@ignite-competition.id
+                                <br />
+                                DISCORD: IGNITE Arcade Server #2026
+                                <br />
+                                LOKASI: Bandung, Jawa Barat
+                            </p>
+                        </div>
+                    </div>
+                    <div className="mx-auto mt-6 flex max-w-[1480px] justify-between border-t border-[#9d3555] pt-4 font-mono text-[8px] tracking-widest text-[#f0cbd0]">
+                        <span>2026 IGNITE INDONESIA. ALL RIGHTS RESERVED.</span>
+                        <span>PRIVASI&nbsp;&nbsp; KETENTUAN</span>
+                    </div>
+                </footer>
+            </div>
+        </>
+    );
+}
+
+function Meta({ label, value }: { label: string; value: string }) {
+    return (
+        <div className="border-b-2 border-[#eadfc9] p-2 last:border-b-0 sm:border-r-2 sm:border-b-0 sm:last:border-r-0">
+            <p className="font-mono text-[8px] font-bold tracking-widest text-[#665b56]">
+                {label}
+            </p>
+            <p className="mt-1 font-mono text-xs font-bold sm:text-sm">
+                {value}
+            </p>
+        </div>
+    );
+}
+
+function CtaButton({
+    href,
+    children,
+    icon,
+    primary = false,
+}: {
+    href: string;
+    children: React.ReactNode;
+    icon: React.ReactNode;
+    primary?: boolean;
+}) {
+    return (
+        <a
+            href={href}
+            className={`inline-flex items-center gap-2 border-4 border-[#172238] px-4 py-3 font-mono text-[10px] font-bold tracking-wide shadow-[4px_4px_0_#172238] transition-all duration-75 ease-out hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_#172238] active:translate-x-0.5 active:translate-y-0.5 active:shadow-[2px_2px_0_#172238] ${primary ? 'bg-[#f5c54e] text-[#172238]' : 'bg-[#fff9e9] text-[#172238]'}`}
+        >
+            {icon}
+            {children}
+            <ArrowRight className="size-3" />
+        </a>
+    );
+}
+
+function FooterLinks({ title, links }: { title: string; links: string[] }) {
+    return (
+        <div className="font-jakarta text-xs text-[#e5b8bd]">
+            <p className="border-b border-[#9d3555] pb-2 font-mono text-[9px] font-bold tracking-widest text-[#f5c54e]">
+                {title}
+            </p>
+            <div className="mt-2 grid grid-cols-2 gap-x-6 gap-y-1">
+                {links.map((link) => (
+                    <a key={link} href="#" className="hover:text-white">
+                        {link}
+                    </a>
+                ))}
+            </div>
+        </div>
+    );
+}

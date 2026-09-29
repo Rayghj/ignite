@@ -11,7 +11,7 @@ export default function Navbar() {
     const navItems = [
         { name: 'BERANDA', href: home().url },
         { name: 'I-TEACH', href: '/i-teach' },
-        { name: 'I-GAME', href: '#i-game' },
+        { name: 'I-GAME', href: '/i-game' },
     ];
 
     const handleLoginClicked = () => {
