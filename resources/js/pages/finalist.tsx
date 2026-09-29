@@ -1,10 +1,11 @@
-import { Head } from '@inertiajs/react';
+import { Head } from "@inertiajs/react";
+import FinalistIndex from "@/components/finalist/finalist-index";
 
 export default function Finalist() {
     return (
         <>
             <Head title="Finalist" />
-            <div className="min-h-screen">test content</div>
+            <FinalistIndex />
         </>
     );
 }
