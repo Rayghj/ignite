@@ -20,26 +20,32 @@ export default function Login({ status, canResetPassword }: Props) {
         <>
             <Head title="Login" />
 
-            <div className="w-full max-w-2xl mx-auto space-y-6">
+            <div className="mx-auto w-full max-w-2xl space-y-6">
                 <div className="space-y-2">
-                    <h1 className="font-grotesk text-3xl md:text-4xl font-extrabold text-[#5C061C] tracking-tight uppercase">
+                    <h1 className="font-grotesk text-3xl font-extrabold tracking-tight text-[#5C061C] uppercase md:text-4xl">
                         PORTAL LOGIN PESERTA
                     </h1>
-                    <p className="font-jakarta text-lg text-gray-600 leading-relaxed">
-                        Akses dashboard tim, submission berkas game/prototype, dan evaluasi juri IGNITE 2026.
+                    <p className="font-jakarta text-lg leading-relaxed text-gray-600">
+                        Akses dashboard tim, submission berkas game/prototype,
+                        dan evaluasi juri IGNITE 2026.
                     </p>
                 </div>
 
                 {/* alert */}
-                <div className="bg-[#FAF5E9] border-2 border-[#1E1E1E] p-4 rounded-none shadow-[2px_2px_0px_0px_#1E1E1E] flex items-start space-x-3">
-                    <Info className="w-5 h-5 text-[#5C061C] shrink-0 mt-0.5" />
-                    <p className="text-sm text-[#1E1E1E] leading-relaxed">
-                        <span className="font-bold text-[#5C061C]">Perhatian Akun:</span> Gunakan alamat email terverifikasi yang sudah didaftarkan saat registrasi awal tim atau workshop Isola Game Jam.
+                <div className="flex items-start space-x-3 rounded-none border-2 border-[#1E1E1E] bg-[#FAF5E9] p-4 shadow-[2px_2px_0px_0px_#1E1E1E]">
+                    <Info className="mt-0.5 h-5 w-5 shrink-0 text-[#5C061C]" />
+                    <p className="text-sm leading-relaxed text-[#1E1E1E]">
+                        <span className="font-bold text-[#5C061C]">
+                            Perhatian Akun:
+                        </span>{' '}
+                        Gunakan alamat email terverifikasi yang sudah
+                        didaftarkan saat registrasi awal tim atau workshop Isola
+                        Game Jam.
                     </p>
                 </div>
 
                 {status && (
-                    <div className="p-3 bg-green-100 border border-green-500 text-green-800 text-xs font-space-mono">
+                    <div className="font-space-mono border border-green-500 bg-green-100 p-3 text-xs text-green-800">
                         {status}
                     </div>
                 )}
@@ -54,11 +60,16 @@ export default function Login({ status, canResetPassword }: Props) {
                         <>
                             <div className="space-y-1.5">
                                 <div className="flex items-center justify-between">
-                                    <Label htmlFor="email" className="text-sm font-bold text-[#1E1E1E] uppercase flex items-center space-x-1.5">
-                                        <Mail className="w-4 h-4 text-[#5C061C]" />
+                                    <Label
+                                        htmlFor="email"
+                                        className="flex items-center space-x-1.5 text-sm font-bold text-[#1E1E1E] uppercase"
+                                    >
+                                        <Mail className="h-4 w-4 text-[#5C061C]" />
                                         <span>EMAIL KETUA TIM</span>
                                     </Label>
-                                    <span className="text-xs text-[#574143] font-semibold">Wajib diisi</span>
+                                    <span className="text-xs font-semibold text-[#574143]">
+                                        Wajib diisi
+                                    </span>
                                 </div>
                                 <div className="relative">
                                     <Input
@@ -70,21 +81,24 @@ export default function Login({ status, canResetPassword }: Props) {
                                         tabIndex={1}
                                         autoComplete="email"
                                         placeholder="ketua.tim@universitas.edu"
-                                        className="bg-[#FAF5E9] border-2 border-[#1E1E1E] text-[#1E1E1E] rounded-none px-4 py-6 text-sm font-jakarta placeholder:text-gray-400 focus-visible:ring-0 focus-visible:border-[#5C061C] shadow-[2px_2px_0px_0px_#1E1E1E]"
+                                        className="font-jakarta rounded-none border-2 border-[#1E1E1E] bg-[#FAF5E9] px-4 py-6 text-sm text-[#1E1E1E] shadow-[2px_2px_0px_0px_#1E1E1E] placeholder:text-gray-400 focus-visible:border-[#5C061C] focus-visible:ring-0"
                                     />
                                 </div>
                                 <InputError message={errors.email} />
                             </div>
                             <div className="space-y-1.5">
                                 <div className="flex items-center justify-between">
-                                    <Label htmlFor="password" className="text-sm font-bold text-[#1E1E1E] uppercase flex items-center space-x-1.5">
-                                        <Key className="w-4 h-4 text-[#5C061C]" />
+                                    <Label
+                                        htmlFor="password"
+                                        className="flex items-center space-x-1.5 text-sm font-bold text-[#1E1E1E] uppercase"
+                                    >
+                                        <Key className="h-4 w-4 text-[#5C061C]" />
                                         <span>PASSCODE / KATA SANDI</span>
                                     </Label>
                                     {canResetPassword && (
                                         <TextLink
                                             href={request()}
-                                            className="text-xs font-bold text-[#5C061C] hover:underline uppercase"
+                                            className="text-xs font-bold text-[#5C061C] uppercase hover:underline"
                                             tabIndex={5}
                                         >
                                             LUPA KATA SANDI?
@@ -98,7 +112,7 @@ export default function Login({ status, canResetPassword }: Props) {
                                     tabIndex={2}
                                     autoComplete="current-password"
                                     placeholder="••••••••••••"
-                                    className="bg-[#FAF5E9] border-2 border-[#1E1E1E] text-[#1E1E1E] rounded-none px-4 py-6 text-sm font-jakarta placeholder:text-gray-400 focus-visible:ring-0 focus-visible:border-[#5C061C] shadow-[2px_2px_0px_0px_#1E1E1E]"
+                                    className="font-jakarta rounded-none border-2 border-[#1E1E1E] bg-[#FAF5E9] px-4 py-6 text-sm text-[#1E1E1E] shadow-[2px_2px_0px_0px_#1E1E1E] placeholder:text-gray-400 focus-visible:border-[#5C061C] focus-visible:ring-0"
                                 />
                                 <InputError message={errors.password} />
                             </div>
@@ -107,26 +121,13 @@ export default function Login({ status, canResetPassword }: Props) {
                                 tabIndex={4}
                                 disabled={processing}
                                 data-test="login-button"
-                                className="
-                                    mt-2 w-full py-6
-                                    flex items-center justify-center space-x-2
-                                    bg-[#D4A000] hover:bg-[#E5B100] text-[#1E1E1E]
-                                    text-sm font-bold tracking-wider uppercase
-                                    rounded-none border-2 border-[#1E1E1E]
-                                    shadow-[4px_4px_0px_0px_#1E1E1E]
-                                    hover:-translate-x-px hover:-translate-y-px
-                                    hover:shadow-[5px_5px_0px_0px_#1E1E1E]
-                                    active:translate-x-0.5 active:translate-y-0.5
-                                    active:shadow-[2px_2px_0px_0px_#1E1E1E]
-                                    transition-all duration-75
-                                    cursor-pointer
-                                "
+                                className="mt-2 flex w-full cursor-pointer items-center justify-center space-x-2 rounded-none border-2 border-[#1E1E1E] bg-[#D4A000] py-6 text-sm font-bold tracking-wider text-[#1E1E1E] uppercase shadow-[4px_4px_0px_0px_#1E1E1E] transition-all duration-75 hover:-translate-x-px hover:-translate-y-px hover:bg-[#E5B100] hover:shadow-[5px_5px_0px_0px_#1E1E1E] active:translate-x-0.5 active:translate-y-0.5 active:shadow-[2px_2px_0px_0px_#1E1E1E]"
                             >
                                 {processing ? (
                                     <Spinner />
                                 ) : (
                                     <>
-                                        <Box className="w-4 h-4 stroke-[2.5]" />
+                                        <Box className="h-4 w-4 stroke-[2.5]" />
                                         <span>[ LOGIN KE DASHBOARD ]</span>
                                     </>
                                 )}
@@ -136,28 +137,26 @@ export default function Login({ status, canResetPassword }: Props) {
                 </Form>
 
                 {/* help section */}
-                <div className="bg-[#FAF5E9] border-2 border-[#1E1E1E] p-4 rounded-none shadow-[2px_2px_0px_0px_#1E1E1E] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div className="flex flex-col items-start justify-between gap-4 rounded-none border-2 border-[#1E1E1E] bg-[#FAF5E9] p-4 shadow-[2px_2px_0px_0px_#1E1E1E] sm:flex-row sm:items-center">
                     <div className="flex items-center space-x-2">
-                        <Flag className="w-4 h-4 text-[#5C061C] shrink-0" />
+                        <Flag className="h-4 w-4 shrink-0 text-[#5C061C]" />
                         <div className="text-sm">
-                            <span className="font-jakarta text-gray-700">Belum mendaftarkan tim kamu? </span>
-                            <a href="#daftar" className="font-bold text-[#5C061C] underline decoration-2 underline-offset-4 hover:opacity-80">
+                            <span className="font-jakarta text-gray-700">
+                                Belum mendaftarkan tim kamu?{' '}
+                            </span>
+                            <a
+                                href="#daftar"
+                                className="font-bold text-[#5C061C] underline decoration-2 underline-offset-4 hover:opacity-80"
+                            >
                                 DAFTARKAN_TIM_KAMU &lt;&lt;
                             </a>
                         </div>
                     </div>
-                    <a 
-                        href="#bantuan" 
-                        className="
-                            inline-flex items-center space-x-1.5 
-                            bg-[#FAF5E9] border-2 border-[#1E1E1E] 
-                            px-3 py-1.5 rounded-none text-xs font-bold text-[#1E1E1E] uppercase
-                            shadow-[2px_2px_0px_0px_#1E1E1E] 
-                            hover:bg-[#E8C248] hover:-translate-x-px hover:-translate-y-px
-                            active:translate-x-px active:translate-y-px transition-all duration-75
-                        "
+                    <a
+                        href="#bantuan"
+                        className="inline-flex items-center space-x-1.5 rounded-none border-2 border-[#1E1E1E] bg-[#FAF5E9] px-3 py-1.5 text-xs font-bold text-[#1E1E1E] uppercase shadow-[2px_2px_0px_0px_#1E1E1E] transition-all duration-75 hover:-translate-x-px hover:-translate-y-px hover:bg-[#E8C248] active:translate-x-px active:translate-y-px"
                     >
-                        <Headphones className="w-3.5 h-3.5" />
+                        <Headphones className="h-3.5 w-3.5" />
                         <span>BANTUAN PANITIA</span>
                     </a>
                 </div>
