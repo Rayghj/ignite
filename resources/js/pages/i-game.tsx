@@ -1,5 +1,6 @@
 import { Head } from '@inertiajs/react';
 import { ArrowRight, Download, Play } from 'lucide-react';
+import ComingSoon from '@/components/coming-soon';
 
 export default function IGame() {
     return (
@@ -50,20 +51,8 @@ export default function IGame() {
                                     hingga stage final perolehan hadiah.
                                 </p>
                             </div>
-                            <div className="relative mt-4 flex min-h-40 items-center justify-center overflow-hidden border-4 border-[#172238] bg-[#f5eedc] px-5 py-8 shadow-[inset_0_0_12px_rgba(23,34,56,0.18)] sm:min-h-44">
-                                <span className="absolute top-2 left-2 size-2 rounded-full border border-[#172238] bg-[#f5c54e]" />
-                                <span className="absolute top-2 right-2 size-2 rounded-full border border-[#172238] bg-[#f5c54e]" />
-                                <span className="absolute bottom-2 left-2 size-2 rounded-full border border-[#172238] bg-[#f5c54e]" />
-                                <span className="absolute right-2 bottom-2 size-2 rounded-full border border-[#172238] bg-[#f5c54e]" />
-                                <div className="text-center">
-                                    <p className="font-grotesk text-5xl leading-none font-bold text-[#72001f] uppercase sm:text-6xl">
-                                        Coming Soon
-                                    </p>
-                                    <p className="mt-2 inline-block border-2 border-[#172238] bg-[#fff9e9] px-3 py-1 font-mono text-xs font-bold tracking-wide text-[#72001f] sm:text-sm">
-                                        TUNGGU YA, KAMI SEDANG MEMAKSIMALKAN
-                                        ACARANYA!!!
-                                    </p>
-                                </div>
+                            <div className="mt-4">
+                                <ComingSoon description="TUNGGU YA, KAMI SEDANG MEMAKSIMALKAN ACARANYA!!!" />
                             </div>
                         </div>
                     </section>
