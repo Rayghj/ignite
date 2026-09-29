@@ -1,15 +1,12 @@
 import { Head } from '@inertiajs/react';
 import { ArrowRight, Download, Play } from 'lucide-react';
-import Navbar from '@/components/navbar';
 
 export default function IGame() {
     return (
         <>
             <Head title="I-Game Detail" />
-            <div className="min-h-screen overflow-x-hidden bg-[#fff9e9] text-[#172238]">
-                <Navbar />
-
-                <main className="w-full flex-1 pt-20">
+            <div className="w-full overflow-x-hidden bg-[#fff9e9] text-[#172238]">
+                <main className="w-full">
                     <section className="bg-[#72001f] px-5 py-10 text-[#fff9e9] sm:px-8 lg:px-12 lg:py-12">
                         <div className="mx-auto max-w-[1480px]">
                             <p className="mb-3 font-mono text-[10px] font-bold tracking-[0.2em] text-[#e9b6bd]">
@@ -106,53 +103,6 @@ export default function IGame() {
                         </p>
                     </section>
                 </main>
-
-                <footer className="border-t-4 border-[#172238] bg-[#72001f] px-5 py-8 text-[#fff9e9] sm:px-8 lg:px-12">
-                    <div className="mx-auto grid max-w-[1480px] gap-8 md:grid-cols-[1.3fr_1fr_1fr]">
-                        <div>
-                            <p className="font-grotesk text-lg font-bold text-[#f5c54e]">
-                                IGNITE '26
-                            </p>
-                            <p className="font-jakarta mt-2 text-sm font-semibold">
-                                Education & Digital Innovation Competition
-                            </p>
-                            <p className="font-jakarta mt-3 text-xs text-[#e5b8bd] italic">
-                                “Ignite Ideas, Inspire Innovation, Shape the
-                                Future.”
-                            </p>
-                        </div>
-                        <FooterLinks
-                            title="PETA TURNAMEN"
-                            links={[
-                                'Beranda',
-                                'Tentang',
-                                'Kompetisi',
-                                'FAQ',
-                                'Pedoman Lomba',
-                            ]}
-                        />
-                        <div className="font-jakarta text-xs leading-5 text-[#e5b8bd]">
-                            <p className="font-mono text-[9px] font-bold tracking-widest text-[#f5c54e]">
-                                WAKAS PANITIA
-                            </p>
-                            <p className="mt-2">
-                                Diselenggarakan oleh Universitas Pendidikan
-                                Indonesia
-                            </p>
-                            <p className="mt-2">
-                                EMAIL: halo@ignite-competition.id
-                                <br />
-                                DISCORD: IGNITE Arcade Server #2026
-                                <br />
-                                LOKASI: Bandung, Jawa Barat
-                            </p>
-                        </div>
-                    </div>
-                    <div className="mx-auto mt-6 flex max-w-[1480px] justify-between border-t border-[#9d3555] pt-4 font-mono text-[8px] tracking-widest text-[#f0cbd0]">
-                        <span>2026 IGNITE INDONESIA. ALL RIGHTS RESERVED.</span>
-                        <span>PRIVASI&nbsp;&nbsp; KETENTUAN</span>
-                    </div>
-                </footer>
             </div>
         </>
     );
@@ -191,22 +141,5 @@ function CtaButton({
             {children}
             <ArrowRight className="size-3" />
         </a>
-    );
-}
-
-function FooterLinks({ title, links }: { title: string; links: string[] }) {
-    return (
-        <div className="font-jakarta text-xs text-[#e5b8bd]">
-            <p className="border-b border-[#9d3555] pb-2 font-mono text-[9px] font-bold tracking-widest text-[#f5c54e]">
-                {title}
-            </p>
-            <div className="mt-2 grid grid-cols-2 gap-x-6 gap-y-1">
-                {links.map((link) => (
-                    <a key={link} href="#" className="hover:text-white">
-                        {link}
-                    </a>
-                ))}
-            </div>
-        </div>
     );
 }

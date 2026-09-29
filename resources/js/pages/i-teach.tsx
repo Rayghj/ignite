@@ -11,7 +11,6 @@ import {
     ScanSearch,
 } from 'lucide-react';
 import { useState } from 'react';
-import Navbar from '@/components/navbar';
 import {
     Collapsible,
     CollapsibleContent,
@@ -70,10 +69,8 @@ export default function ITeach() {
     return (
         <>
             <Head title="I-Teach Detail" />
-            <div className="min-h-screen overflow-x-hidden bg-[#fff9e9] text-[#172238]">
-                <Navbar />
-
-                <main className="w-full flex-1 pt-20">
+            <div className="w-full overflow-x-hidden bg-[#fff9e9] text-[#172238]">
+                <main className="w-full">
                     <section className="bg-[#72001f] px-5 py-10 text-[#fff9e9] sm:px-8 lg:px-12 lg:py-12">
                         <div className="mx-auto max-w-[1480px]">
                             <p className="mb-3 font-mono text-[10px] font-bold tracking-[0.2em] text-[#e9b6bd]">

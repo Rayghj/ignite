@@ -16,7 +16,6 @@ void createInertiaApp({
             case name === 'welcome':
             case name === 'i-teach':
             case name === 'i-game':
-                return null;
             case name === 'finalist':
                 return UserLayout;
             case name.startsWith('auth/'):
