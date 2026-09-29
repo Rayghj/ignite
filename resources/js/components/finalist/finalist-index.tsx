@@ -1,11 +1,11 @@
-import HeroSection from "@/components/finalist/hero-section";
-import ComingSoon from "@/components/coming-soon";
+import HeroSection from '@/components/finalist/hero-section';
+import ComingSoon from '@/components/coming-soon';
 
 export default function FinalistIndex() {
     return (
-        <div className="w-full flex flex-col gap-8">
+        <div className="flex w-full flex-col gap-8">
             <HeroSection />
             <ComingSoon description="tunggu ya, Penilaian juri masih dilakukan" />
         </div>
-    )
+    );
 }
