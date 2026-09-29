@@ -16,8 +16,6 @@ export default function HeroSection() {
                         Technology-Enhanced Teaching Challenge!
                     </p>
                 </div>
-
-                {/* Badge/Card Stage 04 Clear */}
                 <div className="bg-white/70 backdrop-blur-sm border border-amber-200/50 rounded-xl p-5 shadow-sm flex flex-col items-center justify-center min-w-60 w-full md:w-fit self-end md:self-auto">
                     <Trophy className="w-12 h-12 text-amber-400 fill-amber-400 mb-2" />
                     <span className="text-xs font-black tracking-widest text-[#550017] uppercase">
@@ -29,7 +27,6 @@ export default function HeroSection() {
                 </div>
             </div>
 
-            {/* Middle Row: Announced & Stage Level Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="bg-white/60 backdrop-blur-sm rounded-none p-5 shadow-sm border border-amber-100/40">
                     <span className="block text-xs font-extrabold tracking-widest text-[#550017] uppercase mb-1">
@@ -39,7 +36,6 @@ export default function HeroSection() {
                         20 OKT 2026
                     </span>
                 </div>
-
                 <div className="bg-white/60 backdrop-blur-sm rounded-none p-5 shadow-sm border border-amber-100/40">
                     <span className="block text-xs font-extrabold tracking-widest text-[#550017] uppercase mb-1">
                         STAGE LEVEL
@@ -50,7 +46,6 @@ export default function HeroSection() {
                 </div>
             </div>
 
-            {/* Bottom Row: Official Notice Box */}
             <div className="bg-amber-100/40 border border-gray-400/40 border-l-8 rounded-none p-5 md:p-6 space-y-2">
                 <div className="flex items-center gap-2">
                     <Megaphone className="w-4 h-4 text-[#550017]" />
