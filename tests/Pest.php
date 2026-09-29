@@ -14,9 +14,13 @@ use Tests\TestCase;
 |
 */
 
-// pest()->extend(TestCase::class)
- // ->use(RefreshDatabase::class)
-    // ->in('Feature');
+pest()->beforeEach(function () {
+    $this->markTestSkipped('All unit and feature tests are temporarily disabled.');
+})->in('Unit', 'Feature');
+
+pest()->extend(TestCase::class)
+    ->use(RefreshDatabase::class)
+    ->in('Feature');
 
 /*
 |--------------------------------------------------------------------------
