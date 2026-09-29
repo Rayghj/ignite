@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { router, Link, usePage } from '@inertiajs/react';
 import { Box, Menu, X } from 'lucide-react';
-import { login, home } from '@/routes';
+import { login, home, iTeach } from '@/routes';
 
 export default function Navbar() {
     const { url } = usePage();
@@ -10,8 +10,13 @@ export default function Navbar() {
 
     const navItems = [
         { name: 'BERANDA', href: home().url },
+<<<<<<< HEAD
         { name: 'I-TEACH', href: '/i-teach' },
         { name: 'I-GAME', href: '/i-game' },
+=======
+        { name: 'I-TEACH', href: iTeach().url },
+        { name: 'I-GAME', href: '#i-game' },
+>>>>>>> upstream/main
     ];
 
     const handleLoginClicked = () => {
@@ -36,7 +41,7 @@ export default function Navbar() {
     return (
         <nav
             ref={navRef}
-            className="absolute top-0 left-0 z-50 w-full border-b-2 border-[#1E1E1E] bg-[#FFF9ECF2]"
+            className="fixed top-0 left-0 z-50 w-full border-b-2 border-[#1E1E1E] bg-[#FFF9ECF2]"
         >
             <div className="mx-auto flex h-20 items-center justify-between px-4 md:px-12">
                 <div className="flex flex-col justify-center">
